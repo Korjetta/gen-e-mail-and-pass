@@ -40,4 +40,17 @@ try:
     garbage.close()
     task_file_1.close()
 
-    
+
+    email_lines = email_gen(nameAndFamily)
+
+    task_file_1 = open("task_file_1.txt.", "w")
+    task_file_1.write('EMAIL, NAME, LAST_NAME, TEL, CITY, PASSWORD\n')
+    for i in range(0, len(filtered_lines)):
+        
+        task_file_1.write(email_lines[i] + filtered_lines[i])
+
+    task_file_1.close()
+except FileNotFoundError:
+    print('Файл не существует!')
+except Exception:
+    print('Ошибка!')
